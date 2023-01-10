@@ -27,17 +27,10 @@ jobs:
       - name: Change to gh pages
         run:   | 
             mkdir ${GITHUB_WORKSPACE}/../dist
-            cp -rf ${GITHUB_WORKSPACE}/vite-react-project/dist/* ${GITHUB_WORKSPACE}/../dist/
+            mv ${GITHUB_WORKSPACE}/vite-react-project/dist/* ${GITHUB_WORKSPACE}/../dist/
             git checkout gh-pages
-            rm ${GITHUB_WORKSPACE}/vite-react-project/dist
-            cp ${GITHUB_WORKSPACE}/../dist/* ./
+            rm -rf ${GITHUB_WORKSPACE}/vite-react-project
+            mv ${GITHUB_WORKSPACE}/../dist/* ${GITHUB_WORKSPACE}
             git add .
             git commit -am "github pages"
             git push
-
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.SECRET_GITHUB_TOKEN }}
-      #     publish_dir: ${GITHUB_WORKSPACE}/vite-react-project/dist
-
