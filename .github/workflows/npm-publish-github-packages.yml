@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: 16
 
+      - name: Repository
+        run: echo ${{GITHUB_ACTION_REPOSITORY}}
+
       - name: Install dependencies
         run:   | 
           cd ${GITHUB_WORKSPACE}/vite-react-project && npm install
