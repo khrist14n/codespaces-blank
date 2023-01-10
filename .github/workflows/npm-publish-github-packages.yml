@@ -25,5 +25,9 @@ jobs:
           cd ${GITHUB_WORKSPACE}/vite-react-project && npm run build          
 
       - name: Change to gh pages
-        run: cd ${GITHUB_WORKSPACE}/vite-react-project && npm run deploy
+        run: |
+            git config --global user.email "khrist14n@gmail.com"
+            git config --global user.name "khrist14n"
+            cd ${GITHUB_WORKSPACE}/vite-react-project && npm run deploy
+
 
