@@ -28,6 +28,7 @@ jobs:
         run: |
             git config --global user.email "khrist14n@gmail.com"
             git config --global user.name "khrist14n"
+            export GITHUB_TOKEN=${{secrets.SECRET_GITHUB_TOKEN}}
             cd ${GITHUB_WORKSPACE}/vite-react-project && npm run deploy
 
 
