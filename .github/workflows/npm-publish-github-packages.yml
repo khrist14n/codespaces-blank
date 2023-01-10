@@ -24,7 +24,7 @@ jobs:
           node-version: 16
 
       - name: Repository
-        run: echo ${{GITHUB_ACTION_REPOSITORY}}
+        run: echo ${{github.repository}}
 
       - name: Install dependencies
         run:   | 
