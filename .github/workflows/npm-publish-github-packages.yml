@@ -33,6 +33,9 @@ jobs:
       -name: List Files Dist
         run: ls -la ${GITHUB_WORKSPACE}/vite-react-project/dist
 
+      -name: List Files Dist
+        run: tree ${GITHUB_WORKSPACE}/vite-react-project/dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
