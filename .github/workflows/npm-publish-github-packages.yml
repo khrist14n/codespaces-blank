@@ -27,7 +27,7 @@ jobs:
       - name: Change to gh pages
         run:   | 
             mkdir ${GITHUB_WORKSPACE}/../dist
-            cp ${GITHUB_WORKSPACE}/vite-react-project/dist ${GITHUB_WORKSPACE}/../dist
+            cp -rf ${GITHUB_WORKSPACE}/vite-react-project/dist/* ${GITHUB_WORKSPACE}/../dist/
             git checkout gh-pages
             rm ${GITHUB_WORKSPACE}/vite-react-project/dist
             cp ${GITHUB_WORKSPACE}/../dist/* ./
