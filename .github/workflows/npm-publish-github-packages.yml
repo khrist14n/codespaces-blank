@@ -22,15 +22,8 @@ jobs:
       - name: Install dependencies
         run:   | 
           cd ${GITHUB_WORKSPACE}/vite-react-project && npm install
-          cd ${GITHUB_WORKSPACE}/vite-react-project && npm run build
+          cd ${GITHUB_WORKSPACE}/vite-react-project && npm run build          
 
       - name: Change to gh pages
-        run:   | 
-            mkdir ${GITHUB_WORKSPACE}/../dist
-            mv ${GITHUB_WORKSPACE}/vite-react-project/dist/* ${GITHUB_WORKSPACE}/../dist/
-            git checkout gh-pages
-            rm -rf ${GITHUB_WORKSPACE}/vite-react-project
-            mv ${GITHUB_WORKSPACE}/../dist/* ${GITHUB_WORKSPACE}
-            git add .
-            git commit -am "github pages"
-            git push
+        run: cd ${GITHUB_WORKSPACE}/vite-react-project && npm run deploy
+
