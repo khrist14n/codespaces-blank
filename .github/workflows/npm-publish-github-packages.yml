@@ -21,14 +21,14 @@ jobs:
 
       - name: Install dependencies
         run:   | 
-          cd vite-react-project && npm install
-          cd vite-react-project && npm run build
+          cd ${GITHUB_WORKSPACE}/vite-react-project && npm install
+          cd ${GITHUB_WORKSPACE}/vite-react-project && npm run build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: ./vite-react-project/dist
+          path: ${GITHUB_WORKSPACE}/vite-react-project/dist
 
   deploy:
     name: Deploy
@@ -41,10 +41,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ./vite-react-project/dist
+          path: ${GITHUB_WORKSPACE}/vite-react-project/dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./vite-react-project/dist
+          github_token: ${{ secrets.SECRET_GITHUB_TOKEN }}
+          publish_dir: ${GITHUB_WORKSPACE}/vite-react-project/dist
